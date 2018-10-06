@@ -8,7 +8,7 @@ create-api-django
 
 .. image:: https://img.shields.io/travis/com/matfire/create_api_django.svg
         :target: https://travis-ci.com/matfire/create-api-django
-https://travis-ci.com/matfire/create-api-django.svg?branch=master
+
 .. image:: https://readthedocs.org/projects/create-api-django/badge/?version=latest
         :target: https://create-api-django.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
