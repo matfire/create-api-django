@@ -17,7 +17,7 @@ create-api-django
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/matfire/create_api_django/shield.svg
+.. image:: https://pyup.io/repos/github/matfire/create-api-django/shield.svg
      :target: https://pyup.io/repos/github/matfire/create-api-django/
      :alt: Updates
 
