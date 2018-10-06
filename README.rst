@@ -1,0 +1,41 @@
+=================
+create-api-django
+=================
+
+
+.. image:: https://img.shields.io/pypi/v/create_api_django.svg
+        :target: https://pypi.python.org/pypi/create_api_django
+
+.. image:: https://img.shields.io/travis/matfire/create_api_django.svg
+        :target: https://travis-ci.org/matfire/create_api_django
+
+.. image:: https://readthedocs.org/projects/create-api-django/badge/?version=latest
+        :target: https://create-api-django.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/matfire/create_api_django/shield.svg
+     :target: https://pyup.io/repos/github/matfire/create_api_django/
+     :alt: Updates
+
+
+
+Django Rest Framework Boilerplate to easily create APIs
+
+
+* Free software: MIT license
+* Documentation: https://create-api-django.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
