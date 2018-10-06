@@ -6,8 +6,7 @@ create-api-django
 .. image:: https://img.shields.io/pypi/v/create_api_django.svg
         :target: https://pypi.python.org/pypi/create-api-django
 
-.. image:: https://img.shields.io/travis/matfire/create_api_django.svg
-        :target: https://travis-ci.com/matfire/create-api-django
+.. [![Build Status](https://travis-ci.com/matfire/create-api-django.svg?branch=master)](https://travis-ci.com/matfire/create-api-django)
 
 .. image:: https://readthedocs.org/projects/create-api-django/badge/?version=latest
         :target: https://create-api-django.readthedocs.io/en/latest/?badge=latest
