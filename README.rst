@@ -9,7 +9,7 @@ create-api-django
 
 .. image:: https://img.shields.io/travis/com/matfire/create-api-django.svg
 	:alt: Travis (.com)
-	:target: https://github.com/matfire/create-api-django
+	:target: https://travis-ci.com/matfire/create-api-django
 
 
 .. image:: https://readthedocs.org/projects/create-api-django/badge/?version=latest
