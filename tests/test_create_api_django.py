@@ -9,6 +9,9 @@ from click.testing import CliRunner
 
 from create_api_django import create_api_django
 from create_api_django import cli
+import os
+import sys
+import shutil
 
 
 @pytest.fixture
@@ -27,12 +30,16 @@ def test_content(response):
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
 
-def test_command_line_interface():
-    """Test the CLI."""
-    runner = CliRunner()
-    result = runner.invoke(cli.main)
-    assert result.exit_code == 0
-    assert 'create_api_django.cli.main' in result.output
-    help_result = runner.invoke(cli.main, ['--help'])
-    assert help_result.exit_code == 0
-    assert '--help  Show this message and exit.' in help_result.output
+# def test_command_line_interface():
+# 	"""Test the CLI."""
+# 	runner = CliRunner()
+# 	result = runner.invoke(cli.main)
+# 	assert result.exit_code == 0
+# 	help_result = runner.invoke(cli.main, ['--help'])
+# 	assert help_result.exit_code == 0
+# 	assert '--help  Show this message and exit.' in help_result.output
+
+def test_folder_creation():
+	cli.create_folder("test_folder")
+	assert os.path.isdir("test_folder")
+	shutil.rmtree("test_folder")
