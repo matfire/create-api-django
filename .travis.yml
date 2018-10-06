@@ -25,5 +25,5 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: matfire/create_api_django
+    repo: matfire/create-api-django
     python: 3.6
