@@ -14,16 +14,15 @@ import sys
 import shutil
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
+def setup_module():
+	cli.create_folder("test_folder")
 
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+def teardown_module():
+	shutil.rmtree("test_folder")
 
 def test_folder_creation():
-	cli.create_folder("test_folder")
 	assert os.path.isdir("test_folder")
-	shutil.rmtree("test_folder")
+
+def test_env_creation():
+	cli.create_env("test_folder", 3)
+	assert os.path.exists("test_folder/env/bin")
