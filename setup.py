@@ -36,7 +36,7 @@ setup(
     description="Django Rest Framework Boilerplate to easily create APIs",
     entry_points={
         'console_scripts': [
-            'create_api_django=create_api_django.cli:main',
+            'create-django-api=create_api_django.cli:main',
         ],
     },
     install_requires=requirements,
@@ -50,6 +50,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/matfire/create-api-django',
-    version='0.2.0',
+    version='0.3.0',
     zip_safe=False,
 )
