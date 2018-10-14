@@ -5,22 +5,12 @@ python:
 - 3.4
 - 2.7
 install: pip install -U tox-travis
-
-jobs:
-  include:
-    - stage: Test
-      script: tox
-    - stage: Deploy
-      if: env(TRAVIS_PYTHON_VERSION) = 3.6
-      script: skip
-      deploy: &pypi
-        provider: pypi
-        user: matfire
-        password: Galako999
-        on:
-          tags: true
-
-stages:
-  - test
-  - Deploy
-  
+script: tox
+before_deploy: rm -rf .eggs
+deploy:
+  provider: pypi
+  user: matfire
+  password: Galako999
+  on:
+    tags: true
+    condition: "$TRAVIS_PYTHON_VERSION = 3.6" 
