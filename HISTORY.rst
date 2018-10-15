@@ -16,3 +16,9 @@ History
 ------------------
 
 * Fixed command line argument
+
+
+0.4.0 (2018-10-15)
+------------------
+
+* A new django project is now created
