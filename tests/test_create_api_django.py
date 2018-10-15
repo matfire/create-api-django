@@ -12,6 +12,7 @@ from create_api_django import cli
 import os
 import sys
 import shutil
+import re
 
 
 def setup_module():
@@ -26,3 +27,14 @@ def test_folder_creation():
 def test_env_creation():
 	cli.create_env("test_folder", 3)
 	assert os.path.exists("test_folder/env/bin")
+
+def test_package_install():
+	cli.install("test_folder/env/bin/pip", "django")
+	lib_dir = os.listdir("test_folder/env/lib")
+	for item in lib_dir:
+		if item.startswith('python'):
+			assert os.path.isdir(os.path.join("test_folder/env/lib", item, "site-packages", "django"))
+
+def test_project_init():
+	cli.init_project("test_folder")
+	assert os.path.isdir(os.path.join("test_folder", "api"))

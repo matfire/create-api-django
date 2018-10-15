@@ -6,6 +6,7 @@ import os
 import sys
 import shutil
 import subprocess
+import tqdm
 
 class bcolors:
     HEADER = '\033[95m'
@@ -57,19 +58,23 @@ def install(pip, package):
 		print(bcolors.FAIL + "something went wrong while installing {}".format(package) + bcolors.ENDC)
 	FNULL.close()
 
-
-
 def install_packages(path, packages):
 	activate = os.path.join(path, "env", "bin", "pip")
 	print(bcolors.OKGREEN + "Installing packages" + bcolors.ENDC)
 	for package in packages:
 		install(activate, package)
 
+def init_project(path):
+	python_path = os.path.join("env", "bin", "python")
+	try:
+		subprocess.run(python_path + " " + os.path.join("env", "bin", "django-admin.py") + " startproject api", shell=True, cwd=path)
+	except AttributeError:
+		subprocess.call([python_path, os.path.join("env", "bin", "django-admin.py"), "startproject api"], shell=True, cwd=path)
+
 @click.command()
 @click.argument('name')
 @click.option('--path', default="", help="directory of installation")
 @click.option('--python', default=3, help='python version for installation. Python 3 is recommended')
-@click.option('--db', default="mysql", help="database to use for your project")
 def main(**kwargs):
 	path = ""
 	packages = [
@@ -99,6 +104,7 @@ def main(**kwargs):
 	create_env(folder_path, kwargs["python"])
 	exec_env(folder_path)
 	install_packages(folder_path, packages)
+	init_project(folder_path)
 	sys.exit(0)
 
 
