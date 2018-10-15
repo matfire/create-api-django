@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use create-api-django in a project::
+To use create-api-django::
 
-    import create_api_django
+    use create-django-api from a console
