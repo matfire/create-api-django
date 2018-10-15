@@ -7,6 +7,7 @@ import sys
 import shutil
 import subprocess
 import tqdm
+from create_api_django import packages
 
 class bcolors:
     HEADER = '\033[95m'
@@ -70,26 +71,22 @@ def init_project(path):
 	except AttributeError:
 		subprocess.call([python_path, os.path.join("env", "bin", "django-admin.py"), "startproject api"], shell=True, cwd=path)
 
+
+def get_email():
+	message = "EMAIL_HOST = #insert host\nEMAIL_HOST_USER = #insert user\nEMAIL_HOST_PASSWORD = #insert password\nEMAIL_PORT = #insert port\nEMAIL_USE_TLS = False #change to true when deploying"
+	params = click.edit(message)
+	return params
+
 @click.command()
 @click.argument('name')
 @click.option('--path', default="", help="directory of installation")
 @click.option('--python', default=3, help='python version for installation. Python 3 is recommended')
 @click.option('--verbose', is_flag=True, help='enables complete action log')
+@click.option('--email', is_flag=True, help='define which email service you would like your django api to be configured with')
 def cli(**kwargs):
 	path = ""
-	packages = [
-		"Django",
-		"django-allauth",
-		"django-cors-headers",
-		"django-filter",
-		"django-rest-auth",
-		"django-rest-framework",
-		"django-rest-knox",
-		"djangorestframework",
-		"djangorestframework-jwt",
-		"httpie",
-		"mysqlclient",
-		"Pillow"]
+	if kwargs["email"]:
+		email_params = get_email()
 	if kwargs["path"]:
 		path = parse_path(kwargs["path"])
 	folder_path = get_folder_path(path, kwargs["name"])
