@@ -7,7 +7,6 @@ import sys
 import shutil
 import subprocess
 import tqdm
-from create_api_django import packages
 
 class bcolors:
     HEADER = '\033[95m'
@@ -85,6 +84,20 @@ def get_email():
 @click.option('--email', is_flag=True, help='define which email service you would like your django api to be configured with')
 def cli(**kwargs):
 	path = ""
+	packages = [
+	"Django",
+	"django-allauth",
+	"django-cors-headers",
+	"django-filter",
+	"django-rest-auth",
+	"django-rest-framework",
+	"django-rest-knox",
+	"djangorestframework",
+	"djangorestframework-jwt",
+	"httpie",
+	"mysqlclient",
+	"Pillow"
+	]
 	if kwargs["email"]:
 		email_params = get_email()
 	if kwargs["path"]:
