@@ -18,7 +18,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-
 def create_folder(path):
 	os.makedirs(name=path)
 
@@ -75,7 +74,8 @@ def init_project(path):
 @click.argument('name')
 @click.option('--path', default="", help="directory of installation")
 @click.option('--python', default=3, help='python version for installation. Python 3 is recommended')
-def main(**kwargs):
+@click.option('--vebose', is_flag=True, help='enables complete action log')
+def cli(**kwargs):
 	path = ""
 	packages = [
 		"Django",
@@ -107,6 +107,5 @@ def main(**kwargs):
 	init_project(folder_path)
 	sys.exit(0)
 
-
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    sys.exit(cli())  # pragma: no cover
